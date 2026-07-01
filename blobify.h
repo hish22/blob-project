@@ -74,7 +74,7 @@ bool blb_blob_jump(blb_blob_t *blob, uint32_t value);
 bool blb_blob_slide(blb_blob_t *blob, int32_t steps);
 bool blb_blob_resize(blb_blob_t *blob, int32_t size);
 
-bool blb_blob_put(blb_block_t *blob, int32_t offset, uint8_t value);
-bool blb_blob_get(blb_block_t *blob, int32_t offset, uint8_t *value);
+bool blb_blob_put(blb_blob_t *blob, int32_t offset, uint8_t value);
+bool blb_blob_get(blb_blob_t *blob, int32_t offset, uint8_t *value);
 
 #endif

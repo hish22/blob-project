@@ -199,6 +199,15 @@ bool blb_blob_get(blb_blob_t *blob, int32_t offset, uint8_t *value){
     return false;
 }
 
+int main(void) {
+    blb_blob_t *blob = blb_blob_create(128,1);
+    
+    blb_blob_put(blob,0,32);
+    uint8_t value = 0;
+    blb_blob_get(blob, 0, &value);
+    printf("Value = %u",value);
+
+}
 
 int main3(void){
     blb_cursor_t *c = blb_cursor_create(7, false);
@@ -238,7 +247,7 @@ int main4(void){
         // blb_range_slide(r, INT32_MAX);
 
 
-        printf("start: %u size: %u step: %u fixed: %d\n",
+        printf("start: General%u size: %u step: %u fixed: %d\n",
             r->start, r->size, r->step, r->fixed);
         
         blb_range_resize(r, -16);
@@ -280,7 +289,7 @@ int main2(void){
     return 0;
 }
 
-int main(void){
+int main5(void){
     
     return 0;
 }
