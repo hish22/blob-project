@@ -186,15 +186,15 @@ bool blb_blob_resize(blb_blob_t *blob, int32_t size){
     return false;
 }
 
-bool blb_blob_put(blb_block_t *blob, int32_t offset, uint8_t value){
-    if(blob) {
-        blb_block_put(blob->base, offset, value);
+bool blb_blob_put(blb_blob_t *blob, int32_t offset, uint8_t value){
+    if(blob && blb_range_in(blob->range, offset)) {
+        blb_block_put(blob->block, offset, value);
     }
     return false;
 }
-bool blb_blob_get(blb_block_t *blob, int32_t offset, uint8_t *value){
-    if(blob) {
-        blb_block_get(blob->base, offset, value);
+bool blb_blob_get(blb_blob_t *blob, int32_t offset, uint8_t *value){
+    if(blob && blb_range_in(blob->range, offset)) {
+        blb_block_get(blob->block, offset, value);
     }
     return false;
 }
